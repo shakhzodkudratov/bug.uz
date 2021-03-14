@@ -1,0 +1,54 @@
+{% load static %}
+
+<!doctype html>
+<html lang="uz" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>👾.uz | havolangizni qisqartiring!</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" crossorigin="anonymous">
+
+
+    <style>
+        a, a:hover, a:focus, a:active {
+            color: white;
+        }
+
+        #bug_logo {
+            height: 30px;
+        }
+
+        #form {
+            width: 75%;
+            margin: 36px auto 0 auto;
+        }
+
+        #stats {
+            width: 400px;
+            margin: 36px auto 0 auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="mb-0"><a href="/"><img id="bug_logo" src="{% static 'logo.png' %}" alt="bug">.uz</a></h3>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="mt-auto text-white-50">
+        <p>Shablon va Bootstrap 5 uchun <a href="https://twitter.com/mdo" target="_blank">@mdo</a> akaga rahmat!</p>
+        <p>Ushbu veb-sayt <a href="http://t.me/shakhzodkudratov_uz" target="_blank">Shaxzod</a> va <a
+                href="https://t.me/elzodxon" target="_blank">Elzodxon</a> bilan birgalikda
+            <a href="https://www.youtube.com/watch?v=53uak4cCgGE" target="_blank">jonli efirda</a> yaratildi.</p>
+    </footer>
+</div>
+</body>
+</html>

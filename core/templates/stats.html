@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        #stats {
+            position: relative;
+        }
+
+        #stats.copied .tooltip {
+            opacity: 1;
+            transform: translateY(-44px);
+        }
+
+        #stats .tooltip {
+            top: 0;
+            right: 0;
+            transition: opacity 0.1s, transform 0.2s;
+            pointer-events: none;
+        }
+
+        #stats .tooltip .tooltip-arrow {
+            right: 0;
+        }
+    </style>
+    <main class="px-3">
+        <h1><label for="input" style="cursor:pointer;">Havola muvaffaqiyatli yaratildi!</label></h1>
+        {#        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the#}
+        {#            text, and add your own fullscreen background photo to make it your own.</p>#}
+        <div id="stats">
+            <div class="input-group mb-3">
+                <input type="text" id="input" name="url" readonly value="{{ url.short_url }}" class="form-control">
+                <button id="copy" class="btn btn-outline-light">Nusxalash!</button>
+            </div>
+            <div class="tooltip bs-tooltip-top" role="tooltip">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner">
+                    Nusxalandi!
+                </div>
+            </div>
+            <script>
+                let copy = document.getElementById('copy')
+
+                copy.onclick = function () {
+                    let stats = document.getElementById('stats')
+                    let input = document.getElementById('input')
+                    input.select()
+                    document.execCommand("copy")
+                    stats.classList.add('copied')
+                    setTimeout(function () {
+                        stats.classList.remove('copied')
+                    }, 1000)
+                }
+            </script>
+            <hr>
+        </div>
+        <h2>Qisqa statistika:</h2>
+        <div class="row pt-2 px-5">
+            <div class="col-4">
+                Umumiy o'tganlar:
+                <h4>{{ url.stats_total }} ta</h4>
+            </div>
+            <div class="col-4">7 kun ichida o'tganlar:
+                <h4>{{ url.stats_week }} ta</h4>
+            </div>
+            <div class="col-4">24 soat ichida o'tganlar:
+                <h4>{{ url.stats_day }} ta</h4>
+            </div>
+        </div>
+    </main>
+{% endblock %}

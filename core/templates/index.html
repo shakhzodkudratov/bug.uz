@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="px-3">
+    <h1><label for="input" style="cursor:pointer;">Havolangizni qisqartiring!</label></h1>
+    {#        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the#}
+    {#            text, and add your own fullscreen background photo to make it your own.</p>#}
+    <form action="" method="POST" id="form">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" id="input" name="url" required class="form-control" placeholder="https://google.com/juda-juda-juda-juda-juda-uzuuuuuuun-havola">
+            <button class="btn btn-secondary">Qisqartirish!</button>
+        </div>
+    </form>
+</main>
+{% endblock %}
